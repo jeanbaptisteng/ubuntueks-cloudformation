@@ -615,6 +615,12 @@ Resources:
                # Reduce TCP TIME_WAIT
                net.ipv4.tcp_fin_timeout = 10
 
+           - path: /etc/apt/apt.conf.d/20auto-upgrades
+             permissions: "0644"
+             content: |
+               APT::Periodic::Update-Package-Lists "0";
+               APT::Periodic::Unattended-Upgrade "0";
+
            - path: /etc/security/limits.conf
              permissions: "0644"
              content: |
